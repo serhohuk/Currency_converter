@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Currency Converter</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="currency_converter">CURRENCY CONVERTER</string>
+    <string name="usd">USD</string>
+    <string name="uah">UAH</string>
+    <string name="cad">CAD</string>
+    <string name="rub">RUB</string>
+    <string name="cny">CNY</string>
+    <string name="pln">PLN</string>
+    <string name="eur">EUR</string>
+    <string name="gbp">GBP</string>
+    <string name="american_dollar">American Dollar</string>
+    <string name="british_pound">British Pound</string>
+    <string name="russian_ruble">Russian Ruble</string>
+    <string name="euro">EURO</string>
+    <string name="ukrainian_hryvnia">Ukrainian Hryvnia</string>
+    <string name="canadian_dollar">Canadian Dollar</string>
+    <string name="chinese_yuan">Chinese Yuan</string>
+    <string name="polish_zloty">Polish Zloty</string>
+    <string name="equal_symbol">=</string>
+    <string name="switch_currencies">Switch Currencies</string>
+    <string name="change_currency">Change Currency</string>
 </resources>
