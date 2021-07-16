@@ -1,6 +1,7 @@
 package com.sign.currencyconverter.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,11 +26,15 @@ class ListCurrenciesFragment : Fragment(R.layout.fragment_list_currencies) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
         setupRecyclerView()
+
+        myadapter.setOnItemClickListener {
+            val action = ListCurrenciesFragmentDirections.actionListCurrenciesFragmentToConverterFragment(it)
+            findNavController().navigate(action)
+        }
     }
 
     fun setupRecyclerView(){
-        val recViewItems = RecViewItemInitialization()
-        val list = recViewItems.getListWithoutCurrentMapKey(R.string.usd)
+        val list = viewModel.recViewItems.getListWithoutCurrentMapKey(viewModel.currencyCodeForRecView.value!!)
         myadapter = MyRecyclerViewAdapter(list)
         rec_view.apply {
             adapter = myadapter

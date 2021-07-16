@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.sign.currencyconverter.adapter.RecViewItemInitialization
+import com.sign.currencyconverter.adapter.RecyclerViewItem
 import com.sign.currencyconverter.models.Currency
 import com.sign.currencyconverter.models.Results
 import com.sign.currencyconverter.repository.CurrencyRepository
@@ -15,10 +17,13 @@ import retrofit2.Response
 class CurrencyAppViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository : CurrencyRepository
-
+    val recViewItems : RecViewItemInitialization
     val currencyRate : MutableLiveData<Resource<Results>> = MutableLiveData()
+
+    var currencyCodeForRecView : MutableLiveData<String> = MutableLiveData()
     init {
         repository = CurrencyRepository()
+        recViewItems = RecViewItemInitialization()
         getCurrentCurrencyCourse("USD_UAH")
     }
 

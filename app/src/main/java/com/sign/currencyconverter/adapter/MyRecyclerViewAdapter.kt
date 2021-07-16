@@ -27,6 +27,9 @@ class MyRecyclerViewAdapter(items : List<RecyclerViewItem>) : RecyclerView.Adapt
             rv_currency_country_code.text = resources.getString(currency.currencyCode)
             rv_currency_name.text = resources.getString(currency.currencyCountry)
             rv_imv.setImageDrawable(resources.getDrawable(currency.imgDrawable,null))
+            setOnClickListener {
+                onItemClickListener?.let { it(currency) }
+            }
         }
     }
 
@@ -34,6 +37,13 @@ class MyRecyclerViewAdapter(items : List<RecyclerViewItem>) : RecyclerView.Adapt
         return listItems?.size as Int
     }
 
+    private var onItemClickListener : ((RecyclerViewItem)-> Unit)? = null
+
+    fun setOnItemClickListener(listener : (RecyclerViewItem)->Unit){
+        onItemClickListener = listener
+    }
+
     inner class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
+
 
 }
