@@ -1,7 +1,6 @@
 package com.sign.currencyconverter.ui
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -18,7 +17,6 @@ class CurrencyAppViewModel(application: Application) : AndroidViewModel(applicat
     private val repository : CurrencyRepository
 
     val currencyRate : MutableLiveData<Resource<Results>> = MutableLiveData()
-
     init {
         repository = CurrencyRepository()
         getCurrentCurrencyCourse("USD_UAH")
