@@ -86,23 +86,17 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp"/>
-
         <EditText
             android:id="@+id/from_etTypeCurrency"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
+            android:fontFamily="sans-serif"
+            android:textSize="20sp"
             android:inputType="numberDecimal" />
 
     </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -137,16 +131,26 @@
             />
     </LinearLayout>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_margin="16dp"
         android:background="@drawable/layout_bg"
         android:orientation="vertical"
         android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/to_etTypeCurrency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:fontFamily="sans-serif"
+            android:textSize="20sp"
+
+            android:focusable="false"
+            android:clickable="false"
+            android:inputType="none" />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/to_currency_button"
@@ -202,21 +206,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp"/>
-
-        <EditText
-            android:id="@+id/to_etTypeCurrency"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+            android:layout_height="10dp"/>
 
     </LinearLayout>
 

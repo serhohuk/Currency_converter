@@ -5,10 +5,10 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.sign.currencyconverter.adapter.RecViewItemInitialization
-import com.sign.currencyconverter.adapter.RecyclerViewItem
 import com.sign.currencyconverter.models.Currency
 import com.sign.currencyconverter.models.Results
 import com.sign.currencyconverter.repository.CurrencyRepository
+import com.sign.currencyconverter.utils.ButtonResource
 import com.sign.currencyconverter.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,12 +19,13 @@ class CurrencyAppViewModel(application: Application) : AndroidViewModel(applicat
     private val repository : CurrencyRepository
     val recViewItems : RecViewItemInitialization
     val currencyRate : MutableLiveData<Resource<Results>> = MutableLiveData()
+    val clickedButtonResource : MutableLiveData<String> = MutableLiveData()
 
-    var currencyCodeForRecView : MutableLiveData<String> = MutableLiveData()
+    var currencyCodeButtonRecView : MutableLiveData<ButtonResource> = MutableLiveData()
     init {
         repository = CurrencyRepository()
         recViewItems = RecViewItemInitialization()
-        //getCurrentCurrencyCourse("USD_UAH")
+        getCurrentCurrencyCourse("USD_UAH")
     }
 
     fun getCurrentCurrencyCourse(query: String){
