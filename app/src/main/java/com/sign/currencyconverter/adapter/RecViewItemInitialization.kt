@@ -31,7 +31,7 @@ class RecViewItemInitialization {
         return list
     }
 
-    fun getListWithCurrentKey(code: Int) : RecyclerViewItem{
+    fun getListWithCurrentKey(code: String) : RecyclerViewItem{
         return recyclerViewItemsList.get(code) as RecyclerViewItem
     }
 }

@@ -42,5 +42,4 @@ class ListCurrenciesFragment : Fragment(R.layout.fragment_list_currencies) {
 
         }
     }
-
 }

@@ -24,7 +24,7 @@ class CurrencyAppViewModel(application: Application) : AndroidViewModel(applicat
     init {
         repository = CurrencyRepository()
         recViewItems = RecViewItemInitialization()
-        getCurrentCurrencyCourse("USD_UAH")
+        //getCurrentCurrencyCourse("USD_UAH")
     }
 
     fun getCurrentCurrencyCourse(query: String){
@@ -55,5 +55,12 @@ class CurrencyAppViewModel(application: Application) : AndroidViewModel(applicat
 
     fun roundTwoDigits(number : Double) : String{
         return String.format("%.2f",number).toDouble().toString()
+    }
+
+    fun handleConvert(inputValue : String) : String{
+            val  currencyCourse = currencyRate.value?.data?.value as Double
+            val output = inputValue.toDouble()* currencyCourse
+            val results = roundTwoDigits(output)
+            return results
     }
 }
