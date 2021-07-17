@@ -34,6 +34,18 @@ class ConverterFragment : Fragment(R.layout.fragment_converter) {
             changeCurrentCurrency(result)
         }
 
+
+            viewModel.currencyRate.observe(viewLifecycleOwner, { results->
+                when(results){
+                    is Resource.Error -> {
+                        Toast.makeText(context,results.message,Toast.LENGTH_SHORT).show()
+                        from_etTypeCurrency.isEnabled = false
+                    }
+                }
+            })
+
+
+
         from_etTypeCurrency.addTextChangedListener{editable->
                 editable?.let {
                     if (editable.toString().isNotEmpty() && editable.toString()!="."){
@@ -71,7 +83,7 @@ class ConverterFragment : Fragment(R.layout.fragment_converter) {
 
     fun changeCurrentCurrency(resultItem : RecyclerViewItem?) {
         resultItem?.let { selectedItem->
-            viewModel.currencyCodeButtonRecView.observe(viewLifecycleOwner, Observer { savedButtonState->
+            viewModel.currencyCodeButtonRecView.observe(viewLifecycleOwner,  { savedButtonState->
                 val currencyChangeButtonData = viewModel.recViewItems.getListWithCurrentKey(savedButtonState.currencyCode)
                 if (savedButtonState.buttonID==from_currency_button.id){
                     setDataForFromButton(currencyChangeButtonData)
@@ -91,17 +103,6 @@ class ConverterFragment : Fragment(R.layout.fragment_converter) {
         }
         sendRequestToServer()
     }
-
-    fun requestSuccessfullOrNot(){
-    viewModel.currencyRate.observe(viewLifecycleOwner, Observer { results->
-        when(results){
-            is Resource.Error -> {
-                Toast.makeText(context,results.message,Toast.LENGTH_SHORT).show()
-            }
-        }
-    })
-    }
-
 
     fun setDataForFromButton(data : RecyclerViewItem){
         from_currency_country_code.text = getString(data.currencyCode)
