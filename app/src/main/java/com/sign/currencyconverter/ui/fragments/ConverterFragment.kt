@@ -78,6 +78,8 @@ class ConverterFragment : Fragment(R.layout.fragment_converter) {
             val fromImageViewDrawable = from_imv.drawable
             from_imv.setImageDrawable(to_imv.drawable)
                 .also { to_imv.setImageDrawable(fromImageViewDrawable) }
+            clearEditText()
+            sendRequestToServer()
         }
     }
 
