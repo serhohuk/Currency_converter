@@ -21,21 +21,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         viewModel = ViewModelProvider(this).get(CurrencyAppViewModel::class.java)
-
-//        viewModel.currencyRate.observe(this, Observer { results->
-//            when(results){
-//                is Resource.Success -> {
-//                    val currencyPrice = results.data?.value as Double
-//                    //tv_now.text = viewModel.roundTwoDigits(currencyPrice)
-//                }
-//                is Resource.Error -> {
-//                    Toast.makeText(this,results.message,Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//        })
-
     }
-
-
-
 }
